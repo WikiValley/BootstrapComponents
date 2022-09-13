@@ -204,8 +204,7 @@ class HookRegistry {
 			 */
 			'ParserAfterParse'           => function( Parser &$parser, &$text, \StripState &$stripState ) {
 				if ( $parser->getOutput()->getExtensionData( 'bsc_load_modules' ) ) {
-					$parser->getOutput()->addModules( 'ext.bootstrap.styles' );
-					$parser->getOutput()->addModules( 'ext.bootstrap.scripts' );
+					$parser->getOutput()->addModules( [ 'ext.bootstrap.styles','ext.bootstrap.scripts' ] );
 				}
 				return true;
 			},

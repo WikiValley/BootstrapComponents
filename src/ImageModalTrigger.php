@@ -401,9 +401,7 @@ class ImageModalTrigger {
 	 */
 	private function getWidthOptionForThumbLimits( $thumbLimits ) {
 
-		// this could also be affected by issue #9
-		$user = RequestContext::getMain()->getUser();
-		$widthOption = $user::getDefaultOption( 'thumbsize' );
+		$widthOption = MediaWikiServices::getInstance()->getUserOptionsLookup()->getDefaultOption( 'thumbsize' );
 
 		// we have a problem here: the original \Linker::makeImageLink does get a value for $widthOption,
 		// for instance in parser tests. unfortunately, this value is not passed through the hook.
